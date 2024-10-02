@@ -1,0 +1,22 @@
+En este Readme voy a escribir paso a paso todo lo que fui haciendo para construir el Proyecto en Laravel con Docker.
+
+1. Instalar Docker Desktop
+2. Instalar WSL ( Windows Subsystem for Linux, es una característica de Windows que permite a los usuarios ejecutar un entorno de Linux directamente en Windows, sin necesidad de una máquina virtual o un arranque dual.) 
+Una vez instalado escribimos en consola wsl --set-default-versión 2.
+Después instalamos una distribución de Linux e instalamos Ubuntu con el comando wsl --install -d Ubuntu
+Te pide un Usuario y una Contraseña que las mías son?
+
+3. Crear la App
+Abrimos Powershell y escribimos wsl, esto abre la terminar como si fuera Ubuntu. 
+Luego navego hasta donde quiera crear el Proyecto ya que esto genera como un espejo de tu computadora pero en Ubuntu.
+Una vez ubicado, para crear el proyecto escribimos en la consola ya ubicados en la carpeta, curl -s https://laravel.build/example-app | bash, una vez finalizado el proceso, te pide la contraseña.
+
+4. Arrancar el Servidor
+Para arrancar el Servidor escribimos en consola, dentro de la carpeta del proyecto, ./vendor/bin/sail up.
+Ya se puede ingresar a Localhost y te lleva a una página de Laravel.
+Después lo que tuve que hacer es correr la migración de la Base de Datos con el comando ./vendor/bin/sail artisan migrate
+Posteriormente cree un alias para no tener que escribir siempre ese código y sea más simple. Escribimos en consola sudo nano ~/.bashrc y es escribe abajo de todo alias sail="./vendor/bin/sail"
+
+¿Que es Artisan? Artisan es el CLI de Laravel (Command Line Interface). Permite crear migraciones, controladores, modelos, policies, etc. 
+
+
