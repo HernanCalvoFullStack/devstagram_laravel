@@ -60,7 +60,7 @@ class PerfilController extends Controller
 
         // Verifica la contraseña actual
         if (!Hash::check($request->current_password, Auth::user()->password)) {
-            return back()->withErrors(['current_password' => 'La contraseña actual es incorrecta.']);
+            return back()->withErrors(['current_password' => 'La contraseña actual es incorrecta']);
         }
 
         // Cambia la contraseña si se proporciona una nueva
