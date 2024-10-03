@@ -83,12 +83,6 @@ class PerfilController extends Controller
     
         $usuario->save();
 
-        // Enviar la notificación
-        $usuario->notify(new ProfileUpdated());
-
-        // Configura el mensaje flash
-        session()->flash('success', 'Tu perfil ha sido actualizado.');
-
         // Redireccionar al Usuario
         return redirect()->route("posts.index", $usuario->username);
     }
